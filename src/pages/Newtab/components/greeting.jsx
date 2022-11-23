@@ -4,6 +4,12 @@ import { Text, Box } from '@chakra-ui/react';
 export const Greeting = () => {
   // returns the greeting for the approriate time of day
   // returns the users name... which is taken from Google login otherwise just returns there.
+
+  // const user = chrome.identity.getProfileUserInfo((userInfo) => {
+  //   console.log(userInfo);
+  // });
+  // console.log('userInfo', user);
+
   return (
     <Box>
       <Text> Hello,</Text>

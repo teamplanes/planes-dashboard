@@ -1,7 +1,7 @@
 import React from 'react';
 import { Greeting } from './components/greeting';
 import { Announcements } from './components/annoucements';
-
+import { QuickAccessTools } from './components/quick-access-tools';
 const Newtab = () => {
   return (
     <>
@@ -11,6 +11,7 @@ const Newtab = () => {
       {/* Slack Channel announcements */}
       {/* Runn timesheet notifications */}
       {/* Quick access links  */}
+      <QuickAccessTools />
     </>
   );
 };
