@@ -43,7 +43,6 @@ export const Announcements = () => {
   const test = async () => {
     const message = await getMessages();
     const user = await getUser(message.user);
-    console.log('HERE IS THE USER', user);
     setUser(user);
     setMessage(message.text);
   };
@@ -66,7 +65,7 @@ export const Announcements = () => {
       <Image
         objectFit="cover"
         maxW={{ base: '100%', sm: '200px' }}
-        src={user.image_24}
+        src={user.image_192}
         alt="User Avatar"
       />
 
@@ -77,11 +76,6 @@ export const Announcements = () => {
           <Text py="2">
             Caffè latte is a coffee beverage of Italian origin made with
             espresso and steamed milk.
-          </Text>
-          <Text>
-            {tests.map((test) => {
-              return <Text>foo</Text>;
-            })}
           </Text>
         </CardBody>
       </Stack>

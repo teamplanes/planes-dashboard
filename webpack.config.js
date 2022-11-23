@@ -10,7 +10,7 @@ var { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 var alias = {
-  'react-dom': '@hot-loader/react-dom',
+  'react-dom': 'react-dom',
 };
 
 // load the secrets
@@ -56,6 +56,13 @@ var options = {
   module: {
     rules: [
       {
+        test: /\.(js)x?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         // look for .css or .scss files
         test: /\.(css|scss)$/,
         // in the `src` directory
@@ -83,22 +90,9 @@ var options = {
         exclude: /node_modules/,
       },
       { test: /\.(ts|tsx)$/, loader: 'ts-loader', exclude: /node_modules/ },
-      {
-        test: /\.(js|jsx)$/,
-        use: [
-          {
-            loader: 'source-map-loader',
-          },
-          {
-            loader: 'babel-loader',
-          },
-        ],
-        exclude: /node_modules/,
-      },
     ],
   },
   resolve: {
-    alias: alias,
     extensions: fileExtensions
       .map((extension) => '.' + extension)
       .concat(['.js', '.jsx', '.ts', '.tsx', '.css']),
