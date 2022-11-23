@@ -1,11 +1,13 @@
 import React from 'react';
-import { Greeting } from './tools/greeting';
-import { Text } from '@chakra-ui/react';
+import { Greeting } from './components/greeting';
+import { Announcements } from './components/annoucements';
+
 const Newtab = () => {
   return (
     <>
       {/* greeting */}
       <Greeting />
+      <Announcements />
       {/* Slack Channel announcements */}
       {/* Runn timesheet notifications */}
       {/* Quick access links  */}
