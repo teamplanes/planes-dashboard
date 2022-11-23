@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Takeoff",
+  "name": "Planes Dashboard",
   "description": "A chrome extension that will help you to takeoff from your current tab to a new tab.",
   "options_page": "options.html",
   "background": {

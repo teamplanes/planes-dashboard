@@ -1,11 +1,11 @@
 {
-  "name": "planes-in-the-sky",
+  "name": "planes-dashboard",
   "version": "4.3.5",
-  "description": "A chrome extension boilerplate built with React 17, Webpack 5, and Webpack Dev Server 4",
+  "description": "A Dashboard for all things planes",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lxieyang/chrome-extension-boilerplate-react.git"
+    "url": "https://github.com/teamplanes/planes-dashboard.git"
   },
   "scripts": {
     "build": "node utils/build.js",
