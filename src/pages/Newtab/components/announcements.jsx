@@ -79,34 +79,32 @@ export const Announcements = () => {
 
   return (
     <Section title="Announcements">
-      <Flex flexDir="row">
-        <Image
-          objectFit="cover"
-          w="100px"
-          h="100px"
-          src={user.image_192}
-          alt="User Avatar"
-          borderRadius="50%"
-        />
-
-        <CardBody>
+      <Box p={8}>
+        <Flex flexDir="row" alignItems="center">
+          <Image
+            objectFit="cover"
+            w="45px"
+            h="45px"
+            src={user.image_48}
+            alt="User Avatar"
+            borderRadius="50%"
+            border="1px solid #497AD9"
+            mr={4}
+          />
           <Heading size="md" mt={0}>
             {name}
           </Heading>
-          <Heading as="h3" size="sm">
-            {user.title}
-          </Heading>
-          <Text py="2" fontSize="24px">
-            {message}
-          </Text>
-          <Box mt={2} />
-          <Link href={permaLink}>
-            <Button colorScheme="blue" mb={2}>
-              View in Slack
-            </Button>
-          </Link>
-        </CardBody>
-      </Flex>
+        </Flex>
+        <Text py={4} my={6} fontSize="24px">
+          {message}
+        </Text>
+        <Box mt={2} />
+        <Link href={permaLink}>
+          <Button colorScheme="blue" mb={2}>
+            View in Slack
+          </Button>
+        </Link>
+      </Box>
     </Section>
   );
 };
