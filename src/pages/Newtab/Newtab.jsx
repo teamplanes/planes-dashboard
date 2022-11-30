@@ -1,5 +1,5 @@
 import React from 'react';
-import { Greeting } from './components/greeting';
+import { Header } from './components/header';
 import { Announcements } from './components/announcements';
 import { QuickAccessTools } from './components/quick-access-tools';
 import { Box, Flex, Text } from '@chakra-ui/react';
@@ -7,9 +7,8 @@ import { Section } from './components/section';
 
 const Newtab = () => {
   return (
-    <Box bg="#ffeada" minHeight="100vh">
-      {/* greeting */}
-      <Greeting />
+    <Box bg="#ffeada" minHeight="100vh" p="100px">
+      <Header />
       <Box mx={8}>
         <Flex gap={10} mb={8}>
           <Flex flexDir="column" flex={3} gap={10}>
