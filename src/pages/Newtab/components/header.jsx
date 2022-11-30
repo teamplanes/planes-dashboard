@@ -1,5 +1,6 @@
 import React from 'react';
-import { Flex, Switch, Text, useColorMode } from '@chakra-ui/react';
+import { Flex, Box, Text, useColorMode } from '@chakra-ui/react';
+import { FiSunset } from 'react-icons/fi';
 
 export const Header = () => {
   // returns the greeting for the approriate time of day
@@ -46,6 +47,7 @@ export const Header = () => {
             lineHeight="39px"
             letterSpacing="-0.02em"
             textTransform="capitalize"
+            color="blu"
           >
             {`${name}!`}
           </Text>
@@ -60,7 +62,46 @@ export const Header = () => {
           {`${getGreeting()}!`}
         </Text>
       )}
-      <Switch onChange={toggleColorMode} />
+      <Flex gap="30px">
+        <Flex flexDirection="column" alignItems="flex-end" gap="10px">
+          <Text
+            fontWeight={500}
+            fontSize={30}
+            lineHeight="39px"
+            letterSpacing="-0.02em"
+          >
+            {new Date().toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+            })}
+          </Text>
+          <Text
+            fontWeight={500}
+            fontSize={15}
+            lineHeight="20px"
+            letterSpacing="-0.02em"
+          >
+            {new Date().toLocaleDateString()}
+          </Text>
+        </Flex>
+        <Box
+          as="IconButton"
+          borderRadius="100%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          cursor="pointer"
+          onClick={toggleColorMode}
+          isRound
+          height="60px"
+          width="60px"
+          bg="dark"
+          color="orange"
+        >
+          <FiSunset size={32} />
+        </Box>
+      </Flex>
     </Flex>
   );
 };

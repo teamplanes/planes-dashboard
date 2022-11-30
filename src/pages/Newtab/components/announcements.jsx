@@ -64,7 +64,7 @@ export const Announcements = () => {
 
   return (
     <Section title="Announcements">
-      <BorderBox p={8}>
+      <BorderBox>
         <Flex flexDir="row" alignItems="center">
           <Image
             objectFit="cover"

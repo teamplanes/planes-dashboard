@@ -32,7 +32,7 @@ const tools = [
 export const QuickAccessTools = () => {
   return (
     <Section title="Tools">
-      <SimpleGrid minChildWidth="200px" spacing="16px">
+      <SimpleGrid minChildWidth="200px" spacing="15px">
         {tools.map((tool) => (
           <Box as="button" key={tool.title}>
             <BorderBox>
