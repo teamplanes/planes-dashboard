@@ -3,8 +3,7 @@ export const getSlackFetch = async (url) => {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
-      Authorization:
-        'Bearer xoxb-167145621489-4427851286449-Fn1GVweNrd5tRXky4uWUuBP8',
+      Authorization: `Bearer ${process.env.SLACK_API_TOKEN}`,
     },
   });
 

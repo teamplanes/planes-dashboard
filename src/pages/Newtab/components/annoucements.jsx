@@ -27,14 +27,13 @@ const getUser = async (userId) => {
     const user = await getSlackFetch(`/users.profile.get?user=${userId}`);
 
     // Print results
-    console.log('user with id: ' + userId + user);
+    console.log('user with id: ' + userId + JSON.stringify(user));
     return user.profile;
   } catch (error) {
     console.error(error);
   }
 };
 
-const tests = [];
 export const Announcements = () => {
   // WebClient instantiates a client that can call API methods
   // When using Bolt, you can use either `app.client` or the `client` passed to listeners.
@@ -71,12 +70,9 @@ export const Announcements = () => {
 
       <Stack>
         <CardBody>
-          <Heading size="md">The perfect latte</Heading>
+          <Heading size="md">{user.first_name + ' ' + user.last_name}</Heading>
 
-          <Text py="2">
-            Caffè latte is a coffee beverage of Italian origin made with
-            espresso and steamed milk.
-          </Text>
+          <Text py="2">{message}</Text>
         </CardBody>
       </Stack>
     </Card>
