@@ -8,7 +8,7 @@ import Newtab from './Newtab';
 import './index.css';
 
 createRoot(window.document.querySelector('#app-container')).render(
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <Newtab />
   </ChakraProvider>

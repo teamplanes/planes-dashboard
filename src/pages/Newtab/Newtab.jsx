@@ -7,7 +7,7 @@ import { Section } from './components/section';
 
 const Newtab = () => {
   return (
-    <Box>
+    <Box bg="#ffeada" minHeight="100vh">
       {/* greeting */}
       <Greeting />
       <Flex mx={8} gap={10}>
@@ -19,10 +19,8 @@ const Newtab = () => {
           <QuickAccessTools />
         </Flex>
         <Flex flex={1}>
-          <Section title="Runn">
-            <Box py={4} px={6}>
-              <Text>Notifications here</Text>
-            </Box>
+          <Section title="Reminders">
+            <Text>Reminders here</Text>
           </Section>
         </Flex>
       </Flex>

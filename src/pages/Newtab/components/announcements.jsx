@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { getSlackFetch } from '../utils/getSlackFetch';
 import { Section } from './section';
+import { BorderBox } from './border-box';
 
 const getMessages = async () => {
   try {
@@ -79,7 +80,7 @@ export const Announcements = () => {
 
   return (
     <Section title="Announcements">
-      <Box p={8}>
+      <BorderBox p={8}>
         <Flex flexDir="row" alignItems="center">
           <Image
             objectFit="cover"
@@ -91,9 +92,9 @@ export const Announcements = () => {
             border="1px solid #497AD9"
             mr={4}
           />
-          <Heading size="md" mt={0}>
+          <Text size="md" mt={0} fontSize="16px" fontWeight="700">
             {name}
-          </Heading>
+          </Text>
         </Flex>
         <Text py={4} my={6} fontSize="24px">
           {message}
@@ -104,7 +105,7 @@ export const Announcements = () => {
             View in Slack
           </Button>
         </Link>
-      </Box>
+      </BorderBox>
     </Section>
   );
 };
