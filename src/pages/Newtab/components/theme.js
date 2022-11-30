@@ -9,6 +9,10 @@ const theme = extendTheme({
   config,
   colors: {
     yellow: '#FFC845',
+    orange: '#FB8040',
+    dark: '#222222',
+    blu: '#497AD9',
+    manFlesh: '#FFEADA',
   },
 });
 
