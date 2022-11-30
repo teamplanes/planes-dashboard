@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text, Box, Flex } from '@chakra-ui/react';
+import { Text, Box, Flex, SimpleGrid } from '@chakra-ui/react';
 import { Section } from './section';
-
 import jiraImage from '../../../assets/img/jira.png';
 import { BorderBox } from './border-box';
 
@@ -33,16 +32,19 @@ const tools = [
 export const QuickAccessTools = () => {
   return (
     <Section title="Tools">
-      <Flex spacing={2} py={4} px={6}>
+      <SimpleGrid minChildWidth="200px" spacing="16px">
         {tools.map((tool) => (
           <Box as="button" key={tool.title}>
             <BorderBox>
-              <Text>{tool.title}</Text>
-              <img width={50} src={tool.src} alt={tool.title} />
+              <Flex alignItems="center" gap={5}>
+                {/* <img width={50} src={tool.src} alt={tool.title} /> */}
+                <Box w={50} h={50} bg="blu" opacity={0.1}/>
+                <Text>{tool.title}</Text>
+              </Flex>
             </BorderBox>
           </Box>
         ))}
-      </Flex>
+      </SimpleGrid>
     </Section>
   );
 };
