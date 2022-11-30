@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Text, Image, Flex, Box, Link } from '@chakra-ui/react';
+import {
+  Text,
+  Image,
+  Flex,
+  Box,
+  Link,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { getSlackFetch } from '../utils/getSlackFetch';
 import { Section } from './section';
@@ -98,7 +105,7 @@ export const Announcements = () => {
         <Link href={permaLink} _hover={{ textDecoration: 'none' }}>
           <Box
             as="button"
-            bg="orange"
+            bg={useColorModeValue('orange', 'blu')}
             width="270px"
             borderRadius="2px"
             display="flex"
@@ -113,6 +120,7 @@ export const Announcements = () => {
               fontSize={20}
               lineHeight="26px"
               letterSpacing="-0.02em"
+              color={useColorModeValue('dark', 'white')}
             >
               View in Slack
             </Text>

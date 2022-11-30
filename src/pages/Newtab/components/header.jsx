@@ -1,5 +1,11 @@
 import React from 'react';
-import { Flex, Box, Text, useColorMode } from '@chakra-ui/react';
+import {
+  Flex,
+  Box,
+  Text,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { FiSunset } from 'react-icons/fi';
 
 export const Header = () => {
@@ -29,6 +35,11 @@ export const Header = () => {
     }
   };
 
+  const darkToFlesh = useColorModeValue('dark', 'manFlesh');
+  const darkToOrange = useColorModeValue('dark', 'orange');
+  const orangeToDark = useColorModeValue('orange', 'dark');
+  const bluToYellow = useColorModeValue('blu', 'yellow');
+
   return (
     <Flex w="100%" justify="space-between">
       {name ? (
@@ -38,6 +49,7 @@ export const Header = () => {
             fontSize={30}
             lineHeight="39px"
             letterSpacing="-0.02em"
+            color={darkToFlesh}
           >
             {`${getGreeting()},`}
           </Text>
@@ -47,7 +59,7 @@ export const Header = () => {
             lineHeight="39px"
             letterSpacing="-0.02em"
             textTransform="capitalize"
-            color="blu"
+            color={bluToYellow}
           >
             {`${name}!`}
           </Text>
@@ -69,11 +81,12 @@ export const Header = () => {
             fontSize={30}
             lineHeight="39px"
             letterSpacing="-0.02em"
+            color={darkToFlesh}
           >
-            {new Date().toLocaleTimeString('en-US', {
+            {new Date().toLocaleTimeString('en-UK', {
               hour: 'numeric',
               minute: 'numeric',
-              hour12: true,
+              hour12: false,
             })}
           </Text>
           <Text
@@ -81,6 +94,7 @@ export const Header = () => {
             fontSize={15}
             lineHeight="20px"
             letterSpacing="-0.02em"
+            color={darkToFlesh}
           >
             {new Date().toLocaleDateString()}
           </Text>
@@ -96,8 +110,8 @@ export const Header = () => {
           isRound
           height="60px"
           width="60px"
-          bg="dark"
-          color="orange"
+          bg={darkToOrange}
+          color={orangeToDark}
         >
           <FiSunset size={32} />
         </Box>

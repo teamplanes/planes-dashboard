@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Box } from '@chakra-ui/react';
+import { Text, Box, useColorModeValue } from '@chakra-ui/react';
 
 export const Section = ({ title, children }) => {
   return (
@@ -9,6 +9,7 @@ export const Section = ({ title, children }) => {
         fontSize={15}
         lineHeight="20px"
         letterSpacing="-0.02em"
+        color={useColorModeValue('dark', 'manFlesh')}
       >
         {title}
       </Text>

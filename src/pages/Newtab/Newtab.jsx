@@ -2,13 +2,13 @@ import React from 'react';
 import { Header } from './components/header';
 import { Announcements } from './components/announcements';
 import { QuickAccessTools } from './components/quick-access-tools';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react';
 import { Section } from './components/section';
 import { BorderBox } from './components/border-box';
 
 const Newtab = () => {
   return (
-    <Box bg="#ffeada" minHeight="100vh" p="100px">
+    <Box bg={useColorModeValue('manFlesh', 'dark')} minHeight="100vh" p="100px">
       <Header />
       <Flex mt={30} flexDirection="column" gap="45px">
         <Flex gap="15px">
