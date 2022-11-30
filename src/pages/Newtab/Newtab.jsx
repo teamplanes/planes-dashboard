@@ -10,7 +10,7 @@ const Newtab = () => {
     <Box bg="#ffeada" minHeight="100vh">
       {/* greeting */}
       <Greeting />
-      <Flex mx={8} gap={10}>
+      <Flex mx={12} gap={10}>
         <Flex flexDir="column" flex={3} gap={10}>
           <Announcements />
           {/* Slack Channel announcements */}

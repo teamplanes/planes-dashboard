@@ -1,16 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Text,
-  Image,
-  Heading,
-  CardBody,
-  Flex,
-  Box,
-  Stack,
-  Link,
-  Button,
-  Divider,
-} from '@chakra-ui/react';
+import { Text, Image, Flex, Box, Link, Button } from '@chakra-ui/react';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 import { getSlackFetch } from '../utils/getSlackFetch';
 import { Section } from './section';
 import { BorderBox } from './border-box';
@@ -25,10 +15,6 @@ const getMessages = async () => {
       (message) => message.subtype !== 'channel_join'
     );
 
-    // Print results
-    console.log(
-      messages.length + ' messages found in planes-dashboard channel'
-    );
     return messages[0];
   } catch (error) {
     console.error(error);
@@ -39,8 +25,6 @@ const getUser = async (userId) => {
   try {
     const user = await getSlackFetch(`/users.profile.get?user=${userId}`);
 
-    // Print results
-    console.log('user with id: ' + userId + JSON.stringify(user));
     return user.profile;
   } catch (error) {
     console.error(error);
@@ -101,7 +85,13 @@ export const Announcements = () => {
         </Text>
         <Box mt={2} />
         <Link href={permaLink}>
-          <Button colorScheme="blue" mb={2}>
+          <Button
+            rightIcon={<AiOutlineArrowRight />}
+            bgColor="orange"
+            mb={2}
+            _hover={{}}
+            borderRadius="2px"
+          >
             View in Slack
           </Button>
         </Link>
