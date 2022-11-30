@@ -50,7 +50,7 @@ const getPermaLink = async (message) => {
     const response = await getSlackFetch(
       `/chat.getPermalink?channel=C04CX09AFFS&message_ts=${message.ts}`
     );
-    return response.permaLink;
+    return response.permalink;
   } catch (error) {
     console.error(error);
   }
@@ -62,7 +62,7 @@ export const Announcements = () => {
   const [message, setMessage] = useState('');
   const [user, setUser] = useState('');
   const [permaLink, setPermalink] = useState('');
-  const test = async () => {
+  const getSlackData = async () => {
     const message = await getMessages();
     const user = await getUser(message.user);
     const link = await getPermaLink(message);
@@ -72,7 +72,7 @@ export const Announcements = () => {
   };
 
   useEffect(() => {
-    test();
+    getSlackData();
   }, []);
 
   return (
@@ -108,9 +108,12 @@ export const Announcements = () => {
               <Text py="2" fontSize="24px">
                 {message}
               </Text>
-              <Button colorScheme="blue" mb={2}>
-                View in Slack
-              </Button>
+              <Link href={permaLink}>
+                <Button colorScheme="blue" mb={2}>
+                  View in Slack
+                </Button>
+              </Link>
+
               <Divider border="1px solid white" orientation="horizontal" />
             </CardBody>
           </Stack>
