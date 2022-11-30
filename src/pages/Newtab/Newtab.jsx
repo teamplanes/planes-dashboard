@@ -20,7 +20,7 @@ const Newtab = () => {
         </Flex>
         <Flex flex={1}>
           <Section title="Reminders">
-            <Text>Notifications here</Text>
+            <Text>Reminders here</Text>
           </Section>
         </Flex>
       </Flex>
