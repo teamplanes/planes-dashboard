@@ -19,7 +19,7 @@ const Newtab = () => {
           <QuickAccessTools />
         </Flex>
         <Flex flex={1}>
-          <Section title="Runn">
+          <Section title="Reminders">
             <Text>Notifications here</Text>
           </Section>
         </Flex>
