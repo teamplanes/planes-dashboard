@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Flex } from '@chakra-ui/react';
+import { Text, Flex, Switch } from '@chakra-ui/react';
 
 export const Greeting = () => {
   // returns the greeting for the approriate time of day
@@ -11,18 +11,16 @@ export const Greeting = () => {
       setEmail(info.email);
     }
   });
-  console.log(email.split('@', 1));
+  const name = email.split('@', 1);
 
   return (
-    <Flex w="100%" justify="space-between">
-      <Flex>
-        {email ? (
-          <Text> Hello, {email.split('@', 1)}</Text>
-        ) : (
-          <Text> Hello there</Text>
-        )}
-      </Flex>
-      <Flex>Dark mode icon</Flex>
+    <Flex boxSizing="border-box" p="16px 24px" w="100%" justify="space-between">
+      {email ? (
+        <Text textTransform="capitalize">{`Hello, ${name}!`}</Text>
+      ) : (
+        <Text> Hello there!</Text>
+      )}
+      <Switch />
     </Flex>
   );
 };
