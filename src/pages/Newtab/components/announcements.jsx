@@ -2,16 +2,13 @@ import React, { useEffect, useState } from 'react';
 import {
   Text,
   Image,
-  Stack,
   Heading,
-  Card,
   CardBody,
-  Divider,
-  Flex,
-  Button,
-  Link,
+  Flex,  
+  Box
 } from '@chakra-ui/react';
 import { getSlackFetch } from '../utils/getSlackFetch';
+import { Section } from './section';
 
 const getMessages = async () => {
   try {
@@ -25,7 +22,7 @@ const getMessages = async () => {
 
     // Print results
     console.log(
-      messages.length + ' messages found in ' + 'planes-dashboard channel'
+      messages.length + ' messages found in planes-dashboard channel'
     );
     return messages[0];
   } catch (error) {
@@ -74,6 +71,7 @@ export const Announcements = () => {
   useEffect(() => {
     getSlackData();
   }, []);
+  const name = user.first_name + ' ' + user.last_name;
 
   return (
     <Card
@@ -119,6 +117,6 @@ export const Announcements = () => {
           </Stack>
         </Flex>
       </Flex>
-    </Card>
+    </Section>
   );
 };

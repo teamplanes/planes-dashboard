@@ -1,35 +1,45 @@
 import React from 'react';
-import { Text, Box, Image, Button } from '@chakra-ui/react';
+import { Text, Box, Flex } from '@chakra-ui/react';
+import { Section } from './section';
+
+import jiraImage from '../../../assets/img/jira.png';
 
 const tools = [
-  { title: 'Github', src: '', link: 'https://github.com/' },
-  { title: 'Bippit', src: '', link: 'https://app.bippit.com/' },
-  { title: 'Charlie HR', src: '', link: 'https://planes.charliehr.com/' },
-  { title: 'Leapsome', src: '', link: 'https://www.leapsome.com/' },
-  { title: 'Sunlight', src: '', link: 'https://grow.sunlight.is/playlists' },
-  { title: 'Runn', src: '', link: 'https://app.runn.io/' },
+  { title: 'Github', src: '/github.png', link: 'https://github.com/' },
+  { title: 'Bippit', src: '/bippit.png', link: 'https://app.bippit.com/' },
+  {
+    title: 'Charlie HR',
+    src: '/charliehr.png',
+    link: 'https://planes.charliehr.com/',
+  },
+  {
+    title: 'Leapsome',
+    src: '/leapsome.png',
+    link: 'https://www.leapsome.com/',
+  },
+  {
+    title: 'Sunlight',
+    src: '/sunlight.png',
+    link: 'https://grow.sunlight.is/playlists',
+  },
+  { title: 'Runn', src: '/runn.png', link: 'https://app.runn.io/' },
   {
     title: 'Jira',
-    src: '',
+    src: jiraImage,
     link: 'https://planesstudio.atlassian.net/jira/your-work',
   },
 ];
 export const QuickAccessTools = () => {
   return (
-    <Box display="flex" justifyContent="flexEnd" width="100%">
-      <Box>
-        <Text> Quick Access Tools</Text>
-      </Box>
-      <Box>
-        {tools.map((tool) => {
-          return (
-            <Button variant="outline" key={tool.title}>
-              <Text> {tool.title}</Text>
-              <Image src={tool.src} w="100px" h="100px" />
-            </Button>
-          );
-        })}
-      </Box>
-    </Box>
+    <Section title="Tools">
+      <Flex spacing={2} py={4} px={6}>
+        {tools.map((tool) => (
+          <Box as="button" key={tool.title}>
+            <Text>{tool.title}</Text>
+            <img width={50} src={tool.src} alt={tool.title} />
+          </Box>
+        ))}
+      </Flex>
+    </Section>
   );
 };
