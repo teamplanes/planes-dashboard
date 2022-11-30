@@ -9,9 +9,9 @@ const Popup = () => {
         <Text fontSize="40px" color="white">
           PLANES
         </Text>
-        <a href="" target="_blank" rel="noreferrer">
+        {/* <a href="" target="_blank" rel="noreferrer"> */}
           <Button>Go</Button>
-        </a>
+        {/* </a> */}
       </header>
     </Box>
   );
