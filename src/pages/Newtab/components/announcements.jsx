@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, Image, Flex, Box, Link, Button } from '@chakra-ui/react';
+import { Text, Image, Flex, Box, Link } from '@chakra-ui/react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { getSlackFetch } from '../utils/getSlackFetch';
 import { Section } from './section';
@@ -76,24 +76,48 @@ export const Announcements = () => {
             border="1px solid #497AD9"
             mr={4}
           />
-          <Text size="md" mt={0} fontSize="16px" fontWeight="700">
+          <Text
+            fontWeight={700}
+            fontSize={15}
+            lineHeight="20px"
+            letterSpacing="-0.02em"
+          >
             {name}
           </Text>
         </Flex>
-        <Text py={4} my={6} fontSize="24px">
+        <Text
+          py="30px"
+          fontWeight={500}
+          fontSize={30}
+          lineHeight="39px"
+          letterSpacing="-0.02em"
+        >
           {message}
         </Text>
         <Box mt={2} />
-        <Link href={permaLink}>
-          <Button
-            rightIcon={<AiOutlineArrowRight />}
-            bgColor="orange"
-            mb={2}
-            _hover={{}}
+        <Link href={permaLink} _hover={{ textDecoration: 'none' }}>
+          <Box
+            as="button"
+            bg="orange"
+            width="270px"
             borderRadius="2px"
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            py="15px"
+            pl="15px"
+            pr="20px"
           >
-            View in Slack
-          </Button>
+            <Text
+              fontWeight={700}
+              fontSize={20}
+              lineHeight="26px"
+              letterSpacing="-0.02em"
+            >
+              View in Slack
+            </Text>
+            <AiOutlineArrowRight size={32} />
+          </Box>
         </Link>
       </BorderBox>
     </Section>
