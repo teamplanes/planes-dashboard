@@ -89,7 +89,7 @@ export const Announcements = () => {
           borderRadius="50%"
         />
 
-        <CardBody>
+        <Box>
           <Heading size="md" mt={0}>
             {name}
           </Heading>
@@ -105,7 +105,7 @@ export const Announcements = () => {
               View in Slack
             </Button>
           </Link>
-        </CardBody>
+        </Box>
       </Flex>
     </Section>
   );

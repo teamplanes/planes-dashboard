@@ -7,7 +7,7 @@ import { Section } from './components/section';
 
 const Newtab = () => {
   return (
-    <Box>
+    <Box bg="#ffeada" minHeight="100vh">
       {/* greeting */}
       <Greeting />
       <Flex mx={8} gap={10}>
@@ -20,9 +20,7 @@ const Newtab = () => {
         </Flex>
         <Flex flex={1}>
           <Section title="Runn">
-            <Box py={4} px={6}>
-              <Text>Notifications here</Text>
-            </Box>
+            <Text>Notifications here</Text>
           </Section>
         </Flex>
       </Flex>
