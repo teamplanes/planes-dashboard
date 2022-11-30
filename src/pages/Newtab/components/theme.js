@@ -14,6 +14,13 @@ const theme = extendTheme({
     blu: '#497AD9',
     manFlesh: '#FFEADA',
   },
+  components: {
+    Text: {
+      baseStyle: {
+        color: 'dark',
+      },
+    },
+  },
 });
 
 export default theme;
