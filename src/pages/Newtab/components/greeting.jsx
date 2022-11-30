@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Flex, Switch } from '@chakra-ui/react';
+import { Text, Flex, Switch, Heading, useColorMode } from '@chakra-ui/react';
 
 export const Greeting = () => {
   // returns the greeting for the approriate time of day
@@ -13,14 +13,19 @@ export const Greeting = () => {
   });
   const name = email.split('@', 1);
 
+  const { toggleColorMode } = useColorMode();
+
   return (
-    <Flex boxSizing="border-box" p="16px 24px" w="100%" justify="space-between">
+    <Flex p={8} w="100%" justify="space-between">
       {email ? (
-        <Text textTransform="capitalize">{`Hello, ${name}!`}</Text>
+        <Text
+          textTransform="capitalize"
+          fontSize="48px"
+        >{`Hello, ${name}!`}</Text>
       ) : (
-        <Text> Hello there!</Text>
+        <Heading size="xl"> Hello there!</Heading>
       )}
-      <Switch />
+      <Switch onChange={toggleColorMode} />
     </Flex>
   );
 };

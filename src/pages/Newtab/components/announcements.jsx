@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Text, Image, Stack, Heading, Card, CardBody } from '@chakra-ui/react';
+import { Text, Image, Box, Heading, Flex, CardBody } from '@chakra-ui/react';
 import { getSlackFetch } from '../utils/getSlackFetch';
+import { Section } from './section';
 
 const getMessages = async () => {
   try {
@@ -14,7 +15,7 @@ const getMessages = async () => {
 
     // Print results
     console.log(
-      messages.length + ' messages found in ' + 'planes-dashboard channel'
+      messages.length + ' messages found in planes-dashboard channel'
     );
     return messages[0];
   } catch (error) {
@@ -49,32 +50,23 @@ export const Announcements = () => {
   useEffect(() => {
     test();
   }, []);
+  const name = user.first_name + ' ' + user.last_name;
 
   return (
-    <Card
-      direction="row"
-      overflow="hidden"
-      variant="outline"
-      bg="#42C7FF"
-      w="500px"
-      h="300px"
-      ml="20%"
-      borderRadius={8}
-    >
-      <Image
-        objectFit="cover"
-        maxW={{ base: '100%', sm: '200px' }}
-        src={user.image_192}
-        alt="User Avatar"
-      />
-
-      <Stack>
+    <Section title="Announcements">
+      <Flex direction="row">
+        <Image
+          objectFit="cover"
+          maxW={{ base: '100%', sm: '200px' }}
+          src={user.image_192}
+          alt="User Avatar"
+        />
         <CardBody>
-          <Heading size="md">{user.first_name + ' ' + user.last_name}</Heading>
-
-          <Text py="2">{message}</Text>
+          <Heading size="md">{name}</Heading>
+          <Box mt={2} />
+          <Text>{message}</Text>
         </CardBody>
-      </Stack>
-    </Card>
+      </Flex>
+    </Section>
   );
 };
