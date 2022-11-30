@@ -4,8 +4,12 @@ import {
   Image,
   Heading,
   CardBody,
-  Flex,  
-  Box
+  Flex,
+  Box,
+  Stack,
+  Link,
+  Button,
+  Divider,
 } from '@chakra-ui/react';
 import { getSlackFetch } from '../utils/getSlackFetch';
 import { Section } from './section';
@@ -74,48 +78,34 @@ export const Announcements = () => {
   const name = user.first_name + ' ' + user.last_name;
 
   return (
-    <Card
-      direction="row"
-      overflow="hidden"
-      variant="outline"
-      bg="#1434A4"
-      w="50vw"
-      h="300px"
-      mx="auto"
-      borderRadius={8}
-    >
-      <Flex flexDir="column" w="100%">
-        <Flex flexDir="row" p={8} pb={0}>
-          <Image
-            objectFit="cover"
-            w="100px"
-            h="100px"
-            src={user.image_192}
-            alt="User Avatar"
-            borderRadius="50%"
-          />
+    <Section title="Announcements">
+      <Flex flexDir="row">
+        <Image
+          objectFit="cover"
+          w="100px"
+          h="100px"
+          src={user.image_192}
+          alt="User Avatar"
+          borderRadius="50%"
+        />
 
-          <Stack ml={2} w="100%" color="white">
-            <CardBody>
-              <Heading size="md" mt={0}>
-                {user.first_name + ' ' + user.last_name}
-              </Heading>
-              <Heading as="h3" size="sm">
-                {user.title}
-              </Heading>
-              <Text py="2" fontSize="24px">
-                {message}
-              </Text>
-              <Link href={permaLink}>
-                <Button colorScheme="blue" mb={2}>
-                  View in Slack
-                </Button>
-              </Link>
-
-              <Divider border="1px solid white" orientation="horizontal" />
-            </CardBody>
-          </Stack>
-        </Flex>
+        <CardBody>
+          <Heading size="md" mt={0}>
+            {name}
+          </Heading>
+          <Heading as="h3" size="sm">
+            {user.title}
+          </Heading>
+          <Text py="2" fontSize="24px">
+            {message}
+          </Text>
+          <Box mt={2} />
+          <Link href={permaLink}>
+            <Button colorScheme="blue" mb={2}>
+              View in Slack
+            </Button>
+          </Link>
+        </CardBody>
       </Flex>
     </Section>
   );
