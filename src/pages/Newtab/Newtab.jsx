@@ -8,14 +8,12 @@ import { BorderBox } from './components/border-box';
 
 const Newtab = () => {
   return (
-    <Box bg={useColorModeValue('manFlesh', 'dark')} minHeight="100vh" p="100px">
+    <Box bg={useColorModeValue('cream', 'dark')} minHeight="100vh" p="100px">
       <Header />
       <Flex mt={30} flexDirection="column" gap="45px">
         <Flex gap="15px">
           <Flex flex={3}>
             <Announcements />
-            {/* Slack Channel announcements */}
-            {/* Runn timesheet notifications */}
           </Flex>
           <Flex flex={1}>
             <Section title="Reminders">
@@ -25,7 +23,6 @@ const Newtab = () => {
             </Section>
           </Flex>
         </Flex>
-        {/* Quick access links  */}
         <QuickAccessTools />
       </Flex>
     </Box>

@@ -105,7 +105,7 @@ export const Announcements = () => {
         <Link href={permaLink} _hover={{ textDecoration: 'none' }}>
           <Box
             as="button"
-            bg={useColorModeValue('orange', 'blu')}
+            bg={useColorModeValue('orange', 'blue')}
             width="270px"
             borderRadius="2px"
             display="flex"

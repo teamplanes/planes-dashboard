@@ -9,7 +9,7 @@ export const Section = ({ title, children }) => {
         fontSize={15}
         lineHeight="20px"
         letterSpacing="-0.02em"
-        color={useColorModeValue('dark', 'manFlesh')}
+        color={useColorModeValue('dark', 'cream')}
       >
         {title}
       </Text>

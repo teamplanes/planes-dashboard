@@ -35,10 +35,10 @@ export const Header = () => {
     }
   };
 
-  const darkToFlesh = useColorModeValue('dark', 'manFlesh');
+  const darkToFlesh = useColorModeValue('dark', 'cream');
   const darkToOrange = useColorModeValue('dark', 'orange');
   const orangeToDark = useColorModeValue('orange', 'dark');
-  const bluToYellow = useColorModeValue('blu', 'yellow');
+  const blueToYellow = useColorModeValue('blue', 'yellow');
 
   return (
     <Flex w="100%" justify="space-between">
@@ -59,7 +59,7 @@ export const Header = () => {
             lineHeight="39px"
             letterSpacing="-0.02em"
             textTransform="capitalize"
-            color={bluToYellow}
+            color={blueToYellow}
           >
             {`${name}!`}
           </Text>
@@ -70,6 +70,7 @@ export const Header = () => {
           fontSize={30}
           lineHeight="39px"
           letterSpacing="-0.02em"
+          color={darkToFlesh}
         >
           {`${getGreeting()}!`}
         </Text>
