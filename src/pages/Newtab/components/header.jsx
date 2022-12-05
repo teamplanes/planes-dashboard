@@ -9,9 +9,6 @@ import {
 import { FiSunset } from 'react-icons/fi';
 
 export const Header = () => {
-  // returns the greeting for the approriate time of day
-  // returns the users name... which is taken from Google login otherwise just returns there.
-
   const [name, setName] = React.useState('');
   chrome.identity.getProfileUserInfo({ accountStatus: 'ANY' }, function (info) {
     if (info.email) {
