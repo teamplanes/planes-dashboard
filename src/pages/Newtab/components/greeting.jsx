@@ -11,7 +11,6 @@ export const Greeting = () => {
       setEmail(info.email);
     }
   });
-  console.log(email.split('@', 1));
 
   return (
     <Flex w="100%" justify="space-between">
