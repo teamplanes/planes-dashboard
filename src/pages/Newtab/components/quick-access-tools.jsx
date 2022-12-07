@@ -1,35 +1,70 @@
 import React from 'react';
-import { Text, Box, Image, Button } from '@chakra-ui/react';
+import { Text, Box, Flex, SimpleGrid } from '@chakra-ui/react';
+import { Section } from './section';
+import { BorderBox } from './border-box';
+import jiraImage from '../../../assets/tool_logos/jira_logo.png';
+import bippitImage from '../../../assets/tool_logos/bippit_logo.jpeg';
+import charliehrImage from '../../../assets/tool_logos/charliehr_logo.png';
+import githubImage from '../../../assets/tool_logos/github_logo.svg';
+import leapsomeImage from '../../../assets/tool_logos/leapsome_logo.png';
+import runnImage from '../../../assets/tool_logos/runn_logo.png';
+import sunlightImage from '../../../assets/tool_logos/sunlight_logo.jpeg';
+import perksImage from '../../../assets/tool_logos/perks_logo.jpeg';
+import notionImage from '../../../assets/tool_logos/notion_logo.png';
 
 const tools = [
-  { title: 'Github', src: '', link: 'https://github.com/' },
-  { title: 'Bippit', src: '', link: 'https://app.bippit.com/' },
-  { title: 'Charlie HR', src: '', link: 'https://planes.charliehr.com/' },
-  { title: 'Leapsome', src: '', link: 'https://www.leapsome.com/' },
-  { title: 'Sunlight', src: '', link: 'https://grow.sunlight.is/playlists' },
-  { title: 'Runn', src: '', link: 'https://app.runn.io/' },
+  { title: 'Github', src: githubImage, link: 'https://github.com/' },
+  { title: 'Bippit', src: bippitImage, link: 'https://app.bippit.com/' },
+  {
+    title: 'Charlie HR',
+    src: charliehrImage,
+    link: 'https://planes.charliehr.com/',
+  },
+  {
+    title: 'notion',
+    src: notionImage,
+    link: 'https://www.notion.so/planesstudio',
+  },
+  {
+    title: 'Leapsome',
+    src: leapsomeImage,
+    link: 'https://www.leapsome.com/',
+  },
+  {
+    title: 'Sunlight',
+    src: sunlightImage,
+    link: 'https://grow.sunlight.is/sign-in',
+  },
+  { title: 'Runn', src: runnImage, link: 'https://app.runn.io/' },
   {
     title: 'Jira',
-    src: '',
+    src: jiraImage,
     link: 'https://planesstudio.atlassian.net/jira/your-work',
   },
+  {
+    title: 'Perks at Work',
+    src: perksImage,
+    link: 'https://www.perksatwork.com/login',
+  },
 ];
+
 export const QuickAccessTools = () => {
   return (
-    <Box display="flex" justifyContent="flexEnd" width="100%">
-      <Box>
-        <Text> Quick Access Tools</Text>
-      </Box>
-      <Box>
-        {tools.map((tool) => {
-          return (
-            <Button variant="outline" key={tool.title}>
-              <Text> {tool.title}</Text>
-              <Image src={tool.src} w="100px" h="100px" />
-            </Button>
-          );
-        })}
-      </Box>
-    </Box>
+    <Section title="Tools">
+      <SimpleGrid minChildWidth="200px" spacing="15px">
+        {tools.map(({ title, link, src }) => (
+          <Box key={title}>
+            <a href={link} target="_blank" rel="noreferrer">
+              <BorderBox>
+                <Flex alignItems="center" gap={5}>
+                  <img width={50} src={src} alt={title} />
+                  <Text>{title}</Text>
+                </Flex>
+              </BorderBox>
+            </a>
+          </Box>
+        ))}
+      </SimpleGrid>
+    </Section>
   );
 };

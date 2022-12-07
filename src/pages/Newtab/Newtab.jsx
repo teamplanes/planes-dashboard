@@ -1,20 +1,31 @@
 import React from 'react';
-import { Greeting } from './components/greeting';
-import { Announcements } from './components/annoucements';
+import { Header } from './components/header';
+import { Announcements } from './components/announcements';
 import { QuickAccessTools } from './components/quick-access-tools';
-import { Runn } from './components/runn';
+import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react';
+import { Section } from './components/section';
+import { BorderBox } from './components/border-box';
+
 const Newtab = () => {
   return (
-    <>
-      {/* greeting */}
-      <Greeting />
-      <Announcements />
-      {/* Slack Channel announcements */}
-      {/* Runn timesheet notifications */}
-      <Runn />
-      {/* Quick access links  */}
-      <QuickAccessTools />
-    </>
+    <Box bg={useColorModeValue('cream', 'dark')} minHeight="100vh" p="100px">
+      <Header />
+      <Flex mt={30} flexDirection="column" gap="45px">
+        <Flex gap="15px">
+          <Flex flex={3}>
+            <Announcements />
+          </Flex>
+          <Flex flex={1}>
+            <Section title="Reminders">
+              <BorderBox>
+                <Text>Reminders here</Text>
+              </BorderBox>
+            </Section>
+          </Flex>
+        </Flex>
+        <QuickAccessTools />
+      </Flex>
+    </Box>
   );
 };
 
