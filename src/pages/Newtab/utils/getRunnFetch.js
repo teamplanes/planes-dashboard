@@ -6,8 +6,9 @@ export const getRunnFetch = async (item, params) => {
       },
       params,
     });
-    console.log(result);
-    return result.data;
+    const data = await result.json();
+    console.log(data);
+    return data;
   } catch (error) {
     throw new Error(error);
   }

@@ -6,44 +6,61 @@ import React, { useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
 import { getRunnFetch } from '../utils/getRunnFetch';
 
+const getPeopleData = async () => {
+  try {
+    const people = await getRunnFetch(`people`, {
+      include_projects: true,
+      include_placeholders: true,
+    });
+    return people;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+const getActualsData = async () => {
+  //   const date = new Date();
+  //   const dd = String(date.getDate()).padStart(2, '0');
+  //   const mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+  //   const yyyy = date.getFullYear();
+  //   const firstDay = `${yyyy}-${mm}-${dd}`;
+  //   console.log(firstDay);
+  try {
+    const [actuals] = await getRunnFetch('actuals', { start: Date.now() });
+    return actuals;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
 export const Runn = () => {
   const [email, setEmail] = React.useState('');
   const [person, setPerson] = React.useState();
+  const [people, setPeople] = React.useState();
+  const [personId, setPersonId] = React.useState();
 
   chrome.identity.getProfileUserInfo({ accountStatus: 'ANY' }, function (info) {
     if (info.email) {
       setEmail(info.email);
     }
   });
+  console.log('google', email);
 
-  const date = new Date();
-  const dd = String(date.getDate()).padStart(2, '0') - 7;
-  const mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
-  const yyyy = date.getFullYear();
-  const firstDay = `${yyyy}-${mm}-${dd}`;
-  console.log(firstDay);
+  const getData = async () => {
+    const peopleData = await getPeopleData();
+    setPeople(peopleData);
+  };
 
   useEffect(() => {
-    async function getData() {
-      const [actuals, projects, people] = await Promise.all([
-        getRunnFetch('actuals', { start: firstDay }),
-        getRunnFetch('projects'),
-        // how to get the person ID our to use in the url?
-        getRunnFetch(`people/${people.id}`, {
-          include_projects: true,
-          include_placeholders: true,
-        }),
-      ]);
-      console.log('actuals', actuals);
-      console.log('pople', people);
-
-      setPerson(people.find((person) => person.email === email));
-    }
     getData();
   }, []);
 
-  console.log('kuni', person);
-  //   console.log('actuals', actuals);
+  useEffect(() => {
+    if (people && email && person) {
+      setPerson(people.find((person) => person.email === email));
+      setPersonId(person.id);
+    }
+  }, [people, email, person]);
 
   return <Box></Box>;
 };
