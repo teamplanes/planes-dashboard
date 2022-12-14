@@ -1,9 +1,5 @@
-// get the users email
-// use that to get the users Runn information
-
-// 1. use email
 import React, { useEffect } from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { getRunnFetch } from '../utils/getRunnFetch';
 
 const getPeopleData = async () => {
@@ -19,15 +15,23 @@ const getPeopleData = async () => {
 };
 
 const getActualsData = async () => {
-  //   const date = new Date();
-  //   const dd = String(date.getDate()).padStart(2, '0');
-  //   const mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
-  //   const yyyy = date.getFullYear();
-  //   const firstDay = `${yyyy}-${mm}-${dd}`;
-  //   console.log(firstDay);
+  const date = new Date();
+  const dd = String(date.getDate()).padStart(2, '0');
+  const mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+  const yyyy = date.getFullYear();
+  const firstDay = `${yyyy}-${mm}-${dd}`;
+
   try {
-    const [actuals] = await getRunnFetch('actuals', { start: Date.now() });
+    const actuals = await getRunnFetch(`actuals?start=${firstDay}`);
     return actuals;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+const getAssignmentsData = async () => {
+  try {
+    const assignment = await getRunnFetch(`assignments`);
+    return assignment;
   } catch (error) {
     console.error(error.message);
   }
@@ -35,20 +39,25 @@ const getActualsData = async () => {
 
 export const Runn = () => {
   const [email, setEmail] = React.useState('');
-  const [person, setPerson] = React.useState();
+  const [currentUser, setCurrentUser] = React.useState();
   const [people, setPeople] = React.useState();
   const [personId, setPersonId] = React.useState();
+  const [actuals, setActuals] = React.useState();
+  const [assignments, setAssignments] = React.useState();
 
   chrome.identity.getProfileUserInfo({ accountStatus: 'ANY' }, function (info) {
     if (info.email) {
       setEmail(info.email);
     }
   });
-  console.log('google', email);
 
   const getData = async () => {
     const peopleData = await getPeopleData();
     setPeople(peopleData);
+    const actualsData = await getActualsData();
+    setActuals(actualsData);
+    const assignmentsData = await getAssignmentsData();
+    setAssignments(assignmentsData);
   };
 
   useEffect(() => {
@@ -56,13 +65,33 @@ export const Runn = () => {
   }, []);
 
   useEffect(() => {
-    if (people && email && person) {
-      setPerson(people.find((person) => person.email === email));
-      setPersonId(person.id);
+    if (people && email && currentUser) {
+      setCurrentUser(people.find((person) => person.email === email));
     }
-  }, [people, email, person]);
+  }, [people, email, currentUser]);
 
-  return <Box></Box>;
+  //   useEffect(() => {
+  //     if (currentUser) {
+  //       console.log(currentUser.projects.name);
+  //       //  setPersonId(currentUser.projects.name);
+  //     }
+  //   }, [people, email, currentUser]);
+
+  return (
+    <Box>
+      <Text>
+        <a href={'https://app.runn.io/'} target="_blank" rel="noreferrer">
+          Its Friday 😊 Don't forget to fill in your timesheet! 📝
+        </a>
+      </Text>
+
+      <Text>
+        <a href={'https://app.runn.io/'} target="_blank" rel="noreferrer">
+          You still need to fill in your timesheet! 🚨
+        </a>
+      </Text>
+    </Box>
+  );
 };
 // 1. find user in runn
 // 1. get id

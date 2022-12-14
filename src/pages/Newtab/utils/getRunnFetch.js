@@ -7,7 +7,6 @@ export const getRunnFetch = async (item, params) => {
       params,
     });
     const data = await result.json();
-    console.log(data);
     return data;
   } catch (error) {
     throw new Error(error);
