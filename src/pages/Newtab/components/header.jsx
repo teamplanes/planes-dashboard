@@ -98,14 +98,13 @@ export const Header = () => {
           </Text>
         </Flex>
         <Box
-          as="IconButton"
+          as="button"
           borderRadius="100%"
           display="flex"
           alignItems="center"
           justifyContent="center"
           cursor="pointer"
           onClick={toggleColorMode}
-          isRound
           height="60px"
           width="60px"
           bg={darkToOrange}

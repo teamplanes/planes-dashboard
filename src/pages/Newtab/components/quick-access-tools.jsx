@@ -21,7 +21,7 @@ const tools = [
     link: 'https://planes.charliehr.com/',
   },
   {
-    title: 'notion',
+    title: 'Notion',
     src: notionImage,
     link: 'https://www.notion.so/planesstudio',
   },

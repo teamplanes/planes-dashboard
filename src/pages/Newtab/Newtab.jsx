@@ -1,8 +1,9 @@
 import React from 'react';
 import { Header } from './components/header';
 import { Announcements } from './components/announcements';
+import { Reminder } from './components/reminder';
 import { QuickAccessTools } from './components/quick-access-tools';
-import { Box, Flex, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
 import { Section } from './components/section';
 import { BorderBox } from './components/border-box';
 
@@ -18,7 +19,7 @@ const Newtab = () => {
           <Flex flex={1}>
             <Section title="Reminders">
               <BorderBox>
-                <Text>Reminders here</Text>
+                <Reminder />
               </BorderBox>
             </Section>
           </Flex>
