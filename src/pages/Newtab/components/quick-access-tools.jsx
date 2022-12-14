@@ -53,9 +53,16 @@ export const QuickAccessTools = () => {
     <Section title="Tools">
       <SimpleGrid minChildWidth="200px" spacing="15px">
         {tools.map(({ title, link, src }) => (
-          <Box key={title}>
+          <Box
+            key={title}
+            _hover={{
+              boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+              transform: 'translateY(-0.25em)',
+            }}
+            borderRadius="15px"
+          >
             <a href={link} target="_blank" rel="noreferrer">
-              <BorderBox>
+              <BorderBox h="100%">
                 <Flex alignItems="center" gap={5}>
                   <img width={50} src={src} alt={title} />
                   <Text>{title}</Text>
