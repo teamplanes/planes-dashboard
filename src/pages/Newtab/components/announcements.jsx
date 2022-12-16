@@ -23,7 +23,7 @@ const getMessages = async () => {
     );
 
     const messages = conversationHistory.messages.filter(
-      (message) => message.subtype !== 'channel_join'
+      (message) => !message.hasOwnProperty('subtype')
     );
 
     return messages;
