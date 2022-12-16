@@ -14,6 +14,8 @@ import { getSlackFetch } from '../utils/getSlackFetch';
 import { Section } from './section';
 import { BorderBox } from './border-box';
 
+const { toHTML } = require('slack-markdown');
+
 const getMessages = async () => {
   try {
     const conversationHistory = await getSlackFetch(
@@ -55,6 +57,7 @@ export const Announcements = () => {
   // WebClient instantiates a client that can call API methods
   // When using Bolt, you can use either `app.client` or the `client` passed to listeners.
   const [messages, setMessages] = useState([]);
+  const [messageText, setMessageText] = useState([]);
   const [user, setUser] = useState('');
   const [permaLink, setPermalink] = useState('');
   const [currentMessage, setCurrentMessage] = useState(0);
@@ -88,6 +91,7 @@ export const Announcements = () => {
       setPermalink(link);
       setUser(user);
       setLoading(false);
+      setMessageText(toHTML(messages[currentMessage].text));
     };
     if (messages.length !== 0) {
       getMessageDetails();
@@ -128,12 +132,11 @@ export const Announcements = () => {
           <Text
             py="30px"
             fontWeight={500}
-            fontSize={30}
-            lineHeight="39px"
-            letterSpacing="-0.02em"
-          >
-            {messages[currentMessage]?.text || 'Loading'}
-          </Text>
+            fontSize={20}
+            // lineHeight="39px"
+            // letterSpacing="-0.02em"
+            dangerouslySetInnerHTML={{ __html: messageText || 'Loading' }}
+          />
           <Box mt={2} />
           <Link href={permaLink} _hover={{ textDecoration: 'none' }}>
             <Box
